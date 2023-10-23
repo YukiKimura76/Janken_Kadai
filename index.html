@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  <title>マッスルじゃんけん</title>
+</head>
+
+<body>
+
+
+  <header>
+    <h1>マッスルじゃんけん</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li id="gu_btn">
+        <img class="choice-image" src="./img/Rock.WEBP" alt="グーの画像">
+      </li>
+      <li id="cho_btn">
+        <img class="choice-image" src="./img/Sizzers.WEBP" alt="チョキの画像">
+      </li>
+      <li id="par_btn">
+        <img class="choice-image" src="./img/par.WEBP" alt="パーの画像">
+      </li>
+    </ul>
+
+    <div id="score">
+      <div id="win-counter">Win: 0</div>
+      <div id="lose-counter">Lose: 0</div>
+    </div>
+
+    <div>コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+    <div id="result-image">
+      <img id="Win-image" src="./img/Win.WEBP" alt="勝利の画像">
+      <img id="Lose-image" src="./img/Lose.WEBP" alt="敗北の画像">
+      <img id="Even-image" src="./img/Even.WEBP" alt="引き分けの画像">
+    </div>
+    <div id="play-again" style="display: none;">Play Again</div>
+
+   
+
+    </div>
+
+  </main>
+
+  <footer></footer>
+  <script>
+  
+// // カウンターの初期値を表示
+// $("#win-counter #win-count").text(winCount);
+// $("#lose-counter #lose-count").text(loseCount);
+
+// カウンターの初期値を設定
+let winCount = 0;
+let loseCount = 0;
+
+
+    function resetGame() {
+      // コンピュータの出した手をリセット
+      $("#pc_hands").html("なに？");
+      // 結果画像を非表示に
+      $("#result-image img").hide();
+      // もう一度遊ぶボタンを表示
+      $("#play-again").show();
+    }
+
+    // 勝敗をカウントする関数
+    function updateCounter(result) {
+      if (result === "win") {
+        winCount++;
+        $("#win-counter").text("Win: " + winCount);
+      } else if (result === "lose") {
+        loseCount++;
+        $("#lose-counter").text("Lose: " + loseCount);
+      }
+    }
+
+    // カウンターの表示を更新
+    $("#win-counter").text("Win: " + winCount);
+    $("#lose-counter").text("Lose: " + loseCount);
+
+    $("#gu_btn").on("click", function () {
+      const num = Math.random();
+      const r = Math.ceil(num * 3);
+      resetGame(); // ゲームをリセット
+
+      if (r == 1) {
+        $("#pc_hands").html("グー");
+        $("#result-images img").hide(); // すべての結果画像を非表示に
+        $("#Even-image").show(); // 引き分けの画像を表示
+        updateCounter("even"); // 引き分け時にカウント
+      }
+      if (r == 2) {
+        $("#pc_hands").html("チョキ");
+        $("#result-images img").hide(); // すべての結果画像を非表示に
+        $("#Win-image").show(); // 勝利の画像を表示
+        updateCounter("win"); // 勝利時にカウント
+      }
+      if (r == 3) {
+        $("#pc_hands").html("パー");
+        $("#result-images img").hide(); // すべての結果画像を非表示に
+        $("#Lose-image").show(); // 敗北の画像を表示
+        updateCounter("lose"); // 敗北時にカウント
+      }
+    })
+
+    $("#cho_btn").on("click", function () {
+      const num = Math.random();
+      const r = Math.ceil(num * 3);
+      resetGame(); // ゲームをリセット
+
+      if (r == 1) {
+        $("#pc_hands").html("グー");
+        $("#result-images img").hide(); // すべての結果画像を非表示に
+        $("#Lose-image").show(); // 敗北の画像を表示
+        updateCounter("lose"); // 敗北時にカウント
+      }
+      if (r == 2) {
+        $("#pc_hands").html("チョキ");
+        $("#result-images img").hide(); // すべての結果画像を非表示に
+        $("#Even-image").show(); // 引き分けの画像を表示
+        updateCounter("even"); // 引き分け時にカウント
+      }
+      if (r == 3) {
+        $("#pc_hands").html("パー");
+        $("#result-images img").hide(); // すべての結果画像を非表示に
+        $("#Win-image").show(); // 勝利の画像を表示
+        updateCounter("win"); // 勝利時にカウント
+      }
+    })
+
+    $("#par_btn").on("click", function () {
+      const num = Math.random();
+      const r = Math.ceil(num * 3);
+      resetGame(); // ゲームをリセット
+
+      if (r == 1) {
+        $("#pc_hands").html("グー");
+        $("#result-images img").hide(); // すべての結果画像を非表示に
+        $("#Win-image").show(); // 勝利の画像を表示
+        updateCounter("win"); // 勝利時にカウント
+      }
+      if (r == 2) {
+        $("#pc_hands").html("チョキ");
+        $("#result-images img").hide(); // すべての結果画像を非表示に
+        $("#Lose-image").show(); // 敗北の画像を表示
+        updateCounter("lose"); // 敗北時にカウント
+      }
+      if (r == 3) {
+        $("#pc_hands").html("パー");
+        $("#result-images img").hide(); // すべての結果画像を非表示に
+        $("#Even-image").show(); // 引き分けの画像を表示
+        updateCounter("even"); // 引き分け時にカウント
+      }
+    })
+    $("#play-again").on("click", function () {
+      resetGame(); // ゲームをリセット
+      $(this).hide();
+    });
+
+  </script>
+</body>
+
+</html>

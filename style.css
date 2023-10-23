@@ -1,0 +1,128 @@
+/* ページ全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    font: white;
+  }
+  /* ヘッダーのスタイル */
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 28px; /* フォントサイズを大きく */
+    font-weight: bold; /* フォントを太字に */
+    text-transform: uppercase; /* テキストを大文字に */
+    letter-spacing: 6px; /* 文字の間隔を調整 */
+  }
+  
+  /* メインコンテンツのスタイル */
+  main {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* ジャンケンボタンのスタイル */
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  li {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 0px;
+    margin-top: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    transition: transform 0.3s;
+  }
+  
+  li:hover {
+    background-color: #555;
+    transform: scale(1.1);
+  }
+  
+  /* コンピュータの手と勝敗のスタイル */
+  #pc_hands {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+
+  .choice-image {
+    width: 300px; /* 幅を調整 */
+    height: auto; /* 高さは自動調整 */
+  }
+  
+
+  #Win-image, #Lose-image, #Even-image {
+    display: none;
+    width: 500px;
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#play-again {
+  margin-top: 200px; /* ボタンの上にスペースを取る */
+  background-color: #555;
+  cursor: pointer;
+  color: white;
+  font-size: 30px;
+  padding: 20px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 200px;
+  margin: auto;
+  display: block; /* 水平方向に中央揃え */
+  transition: transform 0.3s;
+}
+
+
+#score {
+  display: flex;
+
+}
+#win-counter {
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 40px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-left: 1030px;
+}
+
+#lose-counter {
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #FF5733;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 40px;
+  width: 110px;
+  display: flex;
+  justify-content: center;
+  margin-left: 535px;
+  align-items: center;
+  height: 50px;
+}
